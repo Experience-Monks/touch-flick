@@ -1,6 +1,6 @@
 {
   "name": "touch-flick",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "bouncy scrolling utility for WebGL/Canvas",
   "main": "index.js",
   "license": "MIT",

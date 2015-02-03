@@ -1,6 +1,6 @@
 # touch-flick
 
-[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 This is a low-level scroll/flick utility for canvas, DOM, WebGL, etc. Work in progress.
 
