@@ -9,10 +9,11 @@ function Integration(opt) {
     this.value = 0
     this.inertia = 0
     this.delta = 0
-    this.min = 0
+    this.min = -100
     this.max = 1000
     this.last = 0
     this.interacting = false
+    
 }
 
 Integration.prototype.update = function(dt) {
