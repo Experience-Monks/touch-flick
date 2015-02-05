@@ -10,13 +10,14 @@ var bounds = {
 }
 
 var dragger
-var rowHeight = bounds.height/16
-console.log(rowHeight)
-var pages = 30
-var contentHeight = pages * rowHeight
-var flick = require('../integration')()
-flick.size = rowHeight
-flick.max = contentHeight-bounds.height
+var cellSize = 50
+var totalCells = 30
+
+var flick = require('../integration')({
+    cellSize: cellSize,
+    totalCells: totalCells,
+    viewSize: bounds.height
+})
 
 // flick.direction = [0, 1]
 // // flick.min[0] = -bounds.width*0.25
@@ -34,13 +35,13 @@ function render(ctx, width, height, dt) {
 
     ctx.translate(0, -flick.value)
     
-    for (var i=0; i<pages; i++) {
+    for (var i=0; i<totalCells; i++) {
         ctx.fillStyle = ['red','grey'][i%2]
-        ctx.fillRect(bounds.x, bounds.y+i*rowHeight, bounds.width, rowHeight)
+        ctx.fillRect(bounds.x, bounds.y+i*cellSize, bounds.width, cellSize)
     }
     ctx.strokeStyle = 'black'
     ctx.lineWidth = 2
-    ctx.strokeRect(bounds.x, bounds.y, bounds.width, contentHeight)
+    ctx.strokeRect(bounds.x, bounds.y, bounds.width, flick.fullSize)
     ctx.restore()
 
     ctx.strokeStyle = 'black'
