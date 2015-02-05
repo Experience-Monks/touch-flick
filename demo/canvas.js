@@ -11,12 +11,12 @@ var bounds = {
 
 var dragger
 
-var flick = require('../')()
-flick.direction = [0, 1]
-// flick.min[0] = -bounds.width*0.25
-flick.min[1] = -bounds.height*0.5
-// flick.max[0] = 900
-flick.max[1] = 0
+var flick = require('../integration')()
+// flick.direction = [0, 1]
+// // flick.min[0] = -bounds.width*0.25
+// flick.min[1] = -bounds.height*0.5
+// // flick.max[0] = 900
+// flick.max[1] = 0
 
 function render(ctx, width, height, dt) {
     ctx.clearRect(0,0,width,height)
@@ -25,7 +25,7 @@ function render(ctx, width, height, dt) {
     ctx.save()
     flick.update(dt)
 
-    ctx.translate(flick.offset[0], flick.offset[1])
+    ctx.translate(0, -flick.value)
     ctx.fillStyle = 'grey'
     ctx.fillRect(bounds.x, bounds.y, bounds.width, bounds.height)
     ctx.restore()
@@ -55,7 +55,7 @@ function setupEvents(canvas) {
             //ignore start event if out of bounds
             if (name === 'start' && !inBounds(pos, bounds))
                 return
-            flick[name](pos)
+            flick[name](pos[1])
         })
     })
 }

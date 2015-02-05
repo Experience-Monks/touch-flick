@@ -2,7 +2,7 @@
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-This is a low-level scroll/flick utility for canvas, DOM, WebGL, etc. Work in progress.
+A utility for "flick" events in Canvas, DOM, WebGL, etc. Especially useful for 
 
 ## Usage
 
