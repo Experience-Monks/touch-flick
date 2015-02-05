@@ -119,7 +119,7 @@ TouchFlick.prototype._clamp = function(fingerDown) {
         //clamp and absolute for easing
         dx = clamp(Math.abs(dx), 0, 1)
         dy = clamp(Math.abs(dy), 0, 1)
-
+        
         this.edge[0] = this.edgeDistance * dx * mx
         this.edge[1] = this.edgeDistance * dy * my
     }
