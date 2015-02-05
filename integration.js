@@ -9,27 +9,31 @@ function Integration(opt) {
     this.value = 0
     this.inertia = 0
     this.delta = 0
-    this.min = -100
+    this.min = 0
     this.max = 1000
     this.last = 0
     this.interacting = false
-    
+    this.size = 100
 }
 
 Integration.prototype.update = function(dt) {
-    if (this.value < this.min) {
+    var padMin = this.min-this.size/4
+    if (this.value < padMin) {
         this.intertia = 0
     }
     if (this.value < 0) {
-        this.delta *= (this.min-this.value) / this.min
+        this.delta *= (padMin-this.value) / padMin
     }
 
+    this.value += this.size/2
+    var dip = this.interacting ? 0 : (this.value % this.size - this.size/2)
     this.value -= this.delta
-    if (this.interacting)
-        this.delta = 0
+    this.delta = 0
     this.value -= this.inertia
     this.inertia *= 0.9
-    this.value = clamp(this.value, this.min, this.max)
+    this.value -= dip * 0.1
+    this.value -= this.size/2
+    this.value = clamp(this.value, padMin, this.max)
 }
 
 Integration.prototype.start = function(value) {

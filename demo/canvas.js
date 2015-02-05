@@ -12,6 +12,7 @@ var bounds = {
 var dragger
 
 var flick = require('../integration')()
+flick.size = bounds.height
 // flick.direction = [0, 1]
 // // flick.min[0] = -bounds.width*0.25
 // flick.min[1] = -bounds.height*0.5
